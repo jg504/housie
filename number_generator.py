@@ -3,7 +3,7 @@ from random import randint
 def generator(li):
     num = randint(1, 90)
 
-    if num in li:
+    if li[num - 1] == 1:
         num = generator(li)
     
     return num
@@ -17,19 +17,16 @@ def show(li):
         if i % 10 == 9:
             print()
 
-
 li = [0] * 90
 
-count = 0
-
-while count < 90:
+while True:
     choice = input("""
 Press 1 for next number.
 Press 2 to show board.
 Press 0 to exit.
 
 >>> """)
-
+    
     if choice == "0":
         break
 
@@ -43,5 +40,3 @@ Press 0 to exit.
     
     else:
         print("Wrong choice. Try again.")
-    
-    count += 1
